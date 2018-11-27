@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Kodchasan:300,500,700|Titillium+Web:300,400,700|Ubuntu:300,500,700&amp;subset=latin-ext"
+    rel="stylesheet">
+  <title>Budget App</title>
+</head>
+
+<body>
+  <div class="container">
+    <!-- ===== MENU ===== -->
+    <div class="menu">
+      <button class="close-btn close-btn--menu"><i class="fas fa-times"></i></button>
+      <button class="menu-btn menu-btn--expenses"><i class="fas fa-plus"></i></button>
+      <button class="menu-btn menu-btn--budget"><i class="fas fa-dollar-sign"></i></button>
+      <button class="menu-btn menu-btn--reset"><i class="fas fa-trash-alt"></i></button>
+      <button class="menu-btn menu-btn--settings"><i class="fas fa-wrench"></i></button>
+    </div>
+
+    <div class="menu-overlay"></div>
+
+    <!-- ===== EXPENSES PANEL ===== -->
+    <form class="expenses-panel panel">
+      <h2 class="panel__title"><span class="bold">Add</span> your expenses!</h2>
+      <h4 class="panel__subtitle">Please enter your new expense</h4>
+      <input type="text" class="panel__input expense-input" placeholder="Expense name ...">
+      <input type="number" class="panel__input expense-amount-input" placeholder="Expense value ...">
+      <button type="submit" class="btn">Add</button>
+      <p class="expense-feedback feedback">Feedback</p>
+      <p class="expense-added-feedback feedback">The expense has been added</p>
+    </form>
+
+    <!-- ===== BUDGET PANEL ===== -->
+    <form class="budget-panel panel">
+      <h2 class="panel__title"><span class="bold">Enter</span> your budget!</h2>
+      <h4 class="panel__subtitle">Please enter your new budget</h4>
+      <input type="number" class="panel__input budget-input" placeholder="Budget value ...">
+      <button type="submit" class="btn">Accept</button>
+      <p class="budget-feedback feedback"></p>
+    </form>
+
+    <!-- ===== RESET PANEL ===== -->
+    <form class="reset-panel panel">
+      <h2 class="panel__title"><span class="bold">Reset</span> your budget plan!</h2>
+      <h4 class="panel__subtitle">Are you sure?</h4>
+      <button type='submit' class="btn">Accept</button>
+    </form>
+
+    <!-- ===== SETTINGS PANEL ===== -->
+    <div class="settings-panel panel">
+      <h2 class="panel__title"><span class="bold">Change</span> your settings!</h2>
+      <h4 class="panel__subtitle">Coming soon soon</h4>
+    </div>
+
+    <!-- ===== UPDATE PANEL ===== -->
+    <form class="update-expense-panel panel manage-expense-panel">
+      <h2 class="panel__title"><span class="bold">Update</span> your expense!</h2>
+      <h4 class="panel__subtitle">How much do you spend now?</h4>
+      <input type="number" class="panel__input update-input" placeholder="Enter value ...">
+      <button type="submit" class="btn">Accept</button>
+      <p class="update-expense-feedback feedback">Feedback</p>
+    </form>
+
+    <!-- ===== EDIT EXPENSE PANEL ===== -->
+    <form class="edit-expense-panel panel manage-expense-panel">
+      <h2 class="panel__title"><span class="bold">Edit</span> your expense!</h2>
+      <h4 class="panel__subtitle">Change the name and the value.</h4>
+      <input type="text" class="panel__input edit-input" placeholder="Expense name ...">
+      <input type="number" class="panel__input edit-input-amount" placeholder="Expense value ...">
+      <button type="submit" class="btn">Accept</button>
+      <p class="edit-expense-feedback feedback">Feedback</p>
+    </form>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+      <header class="header">
+        <div class="btn-wrapper">
+          <button class="open-menu-btn"></button>
+        </div>
+        <h3 class="header__title"><span class="bold">Budget</span> App</h3>
+        <span></span>
+      </header>
+
+      <section class="section-summary">
+
+        <!-- SUMMARY -->
+        <h4 class="section-subtitle">Current balance</h4>
+        <div class="summary">
+          <ul class="summary-content">
+            <li class="summary-info-item">
+              <i class="fas fa-money-bill-wave"></i>
+              <h5 class="summary-info-item__name">Budget</h5>
+              <h5 class="summary-info-item__value">$ <span class="budget-amount">0</span></h5>
+            </li>
+            <li class="summary-info-item">
+              <i class="fas fa-hand-holding-usd"></i>
+              <h5 class="summary-info-item__name">Expenses</h5>
+              <h5 class="summary-info-item__value summary-info-item__value--current-expenses">$ <span class="expense-amount">0</span></h5>
+            </li>
+            <li class="summary-info-item">
+              <i class="fas fa-balance-scale"></i>
+              <h5 class="summary-info-item__name">Balance</h5>
+              <h5 class="summary-info-item__value summary-info-item__value--current-balance"><span class="bold">$ <span
+                    class="balance-amount">0</span></span></h5>
+            </li>
+          </ul>
+
+          <div class="expected-balance-hide">
+            <button class="btn-open-expected">
+              <i class="fas fa-arrow-down"></i>
+            </button>
+            <h4 class="section-subtitle">Expected balance</h4>
+            <ul class="summary-content">
+              <li class="summary-info-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h5 class="summary-info-item__name">Expenses</h5>
+                <h5 class="summary-info-item__value summary-info-item__value--current-expenses">$ <span class="expected-expense-amount">0</span></h5>
+              </li>
+              <li class="summary-info-item">
+                <i class="fas fa-balance-scale"></i>
+                <h5 class="summary-info-item__name"><span class="bold">Balance</span></h5>
+                <h5 class="summary-info-item__value summary-info-item__value--current-balance expected-balance">$ <span
+                    class="expected-balance-amount">0</span></h5>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- EXPENSES -->
+        <div class="expenses">
+          <div class="expenses__intro">
+            <h4 class="section-subtitle">Expenses list</h4>
+            <input class="expenses__search" type="text" placeholder="Search ...">
+            <button class="expenses__search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="expenses__info">
+            <h5 class="list-item">Name</h5>
+            <h5 class="list-item">Value $ (max)</h5>
+            <span class="list-item"></span>
+          </div>
+          <ul class="expense-list">
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
