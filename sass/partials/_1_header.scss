@@ -1,0 +1,54 @@
+.header {
+  display: flex;
+  width: 98%;
+  margin: 0 auto;
+  padding: 0 .4em;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    flex: 1 1 50%;
+    text-align: center;
+    color: $white;
+    @include mediaSm {
+      font-size: 1.4em;
+    }
+  }
+
+  span {
+    flex: 1 1 25%;
+  }
+}
+
+.btn-wrapper {
+  flex: 1 1 25%;
+}
+
+.open-menu-btn {
+  width: 28px;
+  height: 28px;
+  margin-top: .7em;
+  background: none;
+  border: none;
+  position: relative;
+
+  &::after,
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 4px;
+    background: $primary;
+    border-radius: 3px;
+  }
+
+  &::after {
+    top: 15px;
+    width: 20px;
+  }
+
+  &::before {
+    top: 5px;
+    width: 23px;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "budget_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages -d build"
+  },
+  "author": "Bart",
+  "license": "ISC",
+  "homepage": "https://bartstc.github.io/budget_app",
+  "dependencies": {
+    "gh-pages": "^2.0.1"
+  }
+}

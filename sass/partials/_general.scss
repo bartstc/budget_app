@@ -1,0 +1,82 @@
+body {
+  background-color: rgba($secondary, .9);
+}
+
+.container {
+  font-family: $ff-primary;
+  font-weight: $fw-normal;
+  min-height: 100vh;
+  width: 100%;
+  @include mediaMd {
+    width: 420px;
+    min-height: auto;
+    height: 700px;
+  }
+  margin: 0 auto;
+  padding-top: .8em;
+  overflow-x: hidden;
+  background-color: $secondary;
+  background-image: url('../../img/bg_2.png');
+  background-size: 180%;
+  background-position: 15% 0;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  position: relative;
+
+  &.menu-opened {
+    overflow-y: hidden;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $fw-normal;
+}
+
+.bold {
+  font-weight: $fw-bold;
+}
+
+.btn {
+  padding: 0 .6em;
+  border: none;
+  background: $primary;
+  @include font($fs: .55em, $clr: $white, $fw: $fw-light, $tt: uppercase);
+}
+
+.close-btn {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  color: $white;
+  font-size: 2em;
+  margin-bottom: .7em;
+}
+
+.feedback {
+  @include font($fs: .7em, $clr: $primary);
+  text-align: center;
+  display: none;
+}
+
+.feedback.show-feedback {
+  display: block;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+// @keyframes fadeOut {
+//   100% {
+//     opacity: 0;
+//   }
+// }
+
+@keyframes transform {
+  100% {
+    transform: translate(0, 0);
+  }
+}

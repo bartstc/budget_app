@@ -1,0 +1,26 @@
+@mixin font($fs: 1em, $clr: $primary, $fw: $fw-normal, $tt: none) {
+  font-size: $fs;
+  color: $clr;
+  font-weight: $fw;
+  text-transform: $tt;
+}
+
+@mixin panelContainer($width: 100%, $height: auto, $padding: 0) {
+  width: $width;
+  height: $height;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: $padding;
+}
+
+@mixin mediaSm {
+  @media screen and (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (min-width: 420px) {
+    @content;
+  }
+}

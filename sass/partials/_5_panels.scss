@@ -1,0 +1,97 @@
+.panel {
+  position: absolute;
+  z-index: 2;
+  width: 200%;
+  height: 100%;
+  padding: 3.5em 40% 0 0;
+  background: $secondary;
+  top: 0;
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 0;
+  transform: translate(-100%);
+  transition: transform .32s ease-in-out, left .15s ease-in-out;
+
+  &__title {
+    @include font($fs: 1.5em, $fw: $fw-light, $clr: $white);
+    @include mediaSm {
+      font-size: 1.7em;
+    }
+    text-align: center;
+    margin-bottom: 1.2em;
+  }
+
+  &__subtitle {
+    @include font($fs: 1em, $clr: $white);
+    @include mediaSm {
+      font-size: 1.2em;
+    }
+    text-align: center;
+    margin-bottom: .7em;
+  }
+
+  &__input {
+    width: 190px;
+    height: 28px;
+    background: none;
+    border: none;
+    border: .5px solid $primary;
+    padding: .2em 1em;
+    margin-bottom: 1.1em;
+    @include font($fs: .9em, $fw: $fw-light);
+    font-family: $ff-primary;
+
+    &::placeholder {
+      font-family: $ff-primary;
+      @include font($fs: .9em, $fw: $fw-light);
+    }
+  }
+
+  .btn {
+    width: 80px;
+    height: 26px;
+    padding: .1em;
+    margin-bottom: .6em;
+  }
+}
+
+.panel.menu-opened {
+  left: 20%;
+}
+
+.panel.opened {
+  transform: translate(-20%);
+  z-index: 8;
+}
+
+.manage-expense-panel {
+  width: 100%;
+  transform: translate(0);
+  padding: 0;
+  padding-top: 5em;
+  left: auto;
+  display: none;
+
+  .close-btn {
+    position: absolute;
+    top: .3em;
+    left: .3em;
+  }
+}
+
+.manage-expense-panel.shown {
+  display: flex;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .1s ease-in-out forwards;
+
+  > * {
+    opacity: 0;
+    transform: translate(0, 25px);
+    animation: fadeIn .15s ease-in-out forwards, transform .15s ease-in-out forwards;
+  }
+}
