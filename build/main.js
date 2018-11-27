@@ -317,7 +317,6 @@ class UI {
   searchForExpense() {
     let value = this.searchInput.value.toLowerCase().trim();
     const items = document.querySelectorAll('.expense-item');
-    console.log(items)
     items.forEach(item => {
       let type = item.dataset.title;
 
