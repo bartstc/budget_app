@@ -108,6 +108,7 @@ class UI {
   addExpense(expense) {
     const li = document.createElement('li');
     li.classList.add('expense-item');
+    li.dataset.title = `${expense.title}`;
     li.innerHTML = `
       <h6 class="expense-item__title">${expense.title}</h6>
       <h6 class="expense-item__amount"><span class="bold current-amount">${expense.currentAmount}</span> (<span class="max-amount">${expense.expectedAmount}</span>)</h6>
@@ -312,6 +313,22 @@ class UI {
     this.closeMenu();
   };
 
+  // SEARCH FILTER
+  searchForExpense() {
+    let value = this.searchInput.value.toLowerCase().trim();
+    const items = document.querySelectorAll('.expense-item');
+    items.forEach(item => {
+      let type = item.dataset.title;
+
+      (type.includes(value)) ? item.style.display = 'flex' : item.style.display = 'none';
+
+      let length = value.length;
+      let match = type.slice(0, length);
+
+      (value === match) ? item.style.display = 'flex' : item.style.display = 'none';
+    });
+  };
+
   // OPEN/CLOSE
   openMenu() {
     this.body.classList.add('menu-opened');
@@ -377,6 +394,11 @@ function eventListeners() {
   ui.editForm.addEventListener('submit', e => {
     e.preventDefault();
     ui.submitExpenseOrEditForm(ui.editInput, ui.editAmountInput, ui.editExpenseFeedback);
+  });
+
+  // SEARCH FOR EXPENSE
+  ui.searchInput.addEventListener('keyup', () => {
+    ui.searchForExpense();
   });
 
   // UI LISTENERS
